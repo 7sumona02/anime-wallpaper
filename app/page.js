@@ -52,9 +52,9 @@ const Page = () => {
         <button className='btn btn-neutral' onClick={() => handleSelection('shoes')}>Shoes</button>
       </div>
       <div className="grid grid-cols-4 gap-4">
-        {images.map((image) => {
+        {images.map((image,index) => {
           return (
-            <div className="shadow-xl w-44">
+            <div className="shadow-xl w-44" key={index}>
               <figure className="h-full"><img key={image.id} src={image.urls.small} alt={image.alt_description} className="h-full w-full object-cover rounded-md" /></figure>
             </div>
           )
