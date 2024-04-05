@@ -2,7 +2,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import {Download} from 'lucide-react'
+import { ArrowDownToLine } from 'lucide-react';
 
 const page = () => {
     const [images, setImages] = useState([])
@@ -34,15 +34,16 @@ const page = () => {
     
   return (
     <div className='flex flex-col justify-center items-center space-y-4 min-h-screen w-full p-20 relative'>
-        <div className="grid grid-cols-4 gap-4 m-20">
+        <div className="grid grid-cols-4 gap-6 m-20">
         {images.map((image,index) => {
           return (
-            <div className="shadow-xl w-44 relative" key={index}>
+            <div className="shadow-xl w-44 relative hover:scale-105 transition-all" key={index}>
               <figure className="h-full"><img src={image} alt={image} className="h-full w-full object-cover rounded-md" 
                 onClick={()=>{ setCurrentImage(image);
-                    document.getElementById('my_modal_3').showModal()}} /></figure>
-                <button className='bg-gray-100 p-2 absolute right-2 top-2 h-2 w-2 rounded-full flex justify-center items-center  hover:opacity-70' onClick={()=>{ 
-                   downloadImage(image)}}>Download</button>
+                    document.getElementById('my_modal_3').showModal()}} />
+                </figure>
+                <button className='bg-gray-200 p-1 absolute right-2 top-2 w-6 h-6 rounded-full flex justify-center items-center opacity-40 hover:opacity-80 filter invert' onClick={()=>{ 
+                   downloadImage(image)}}><ArrowDownToLine className='text-black' size={32} /></button>
             </div>
           )
         })}
